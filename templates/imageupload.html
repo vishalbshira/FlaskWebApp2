@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br/>
+<h4>Image Upload Functionality</h4>
+<br/>
+<form action="http://localhost:5000/uploader" method="post"
+    enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit">
+
+    <br/>
+    <br/>
+        {% if success == 1%}
+            <div class="alert alert-success" role="alert">
+                {{ file_name }} : {{ upoad_status }}
+            <!--    <br/>{{ image_path }}-->
+            <!--    <br/>{{ extra }}-->
+            </div>
+            <img src="../static/images/{{file_name}}" width="500" height="300">
+        {%endif%}
+</form>
+{% endblock %}
